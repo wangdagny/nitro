@@ -6,6 +6,7 @@ void setup() {
 }
 
 void loop() {
+  Serial.print("loop");
   digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN));
   delay(1000);
 }
