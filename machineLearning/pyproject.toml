@@ -1,0 +1,45 @@
+[project]
+name = "nitro-py"
+version = "0.1.0"
+requires-python = ">=3.13"
+dependencies = []
+
+[tool.uv]
+default-groups = ["dev"]
+
+[tool.black]
+line-length = 80
+target-version = ["py313"]
+force-exclude = '/(?:\.draft|[^/]*\.old)/'
+
+[tool.ruff]
+line-length = 80
+target-version = "py313"
+extend-exclude = [".draft", "*.old"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.pyright]
+typeCheckingMode = "basic"
+extraPaths = ["."]
+exclude = ["**/__pycache__", "**/.*", "**/.draft/**", "**/*.old/**"]
+
+[tool.pytest.ini_options]
+testpaths = ["."]
+python_files = ["*.test.py"]
+addopts = [
+	"--import-mode=importlib",
+	"--ignore-glob=*/.draft",
+	"--ignore-glob=*.old",
+]
+markers = ["unit: unit tests", "integration: integration tests"]
+
+[dependency-groups]
+dev = [
+	"black>=26.3.1",
+	"pyright>=1.1.408",
+	"pytest>=9.0.3",
+	"ruff>=0.15.10",
+	"ipykernel",
+]
