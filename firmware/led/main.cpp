@@ -1,30 +1,21 @@
 #include <Arduino.h>
 #include <Servo.h>
 
-// Servo motors[4];
-// int motorPins[4] = {4, 5, 2, 3};
-Servo motorTopLeft;
-Servo motorBottomLeft;
-Servo motorTopRight;
-Servo motorBottomRight;
-
-int motorTopLeftPin = 4;
-int motorBottomLeftPin = 5;
-int motorTopRightPin = 2;
-int motorBottomRightPin = 3;
+Servo motors[4];
+int motorPins[4] = {4, 5, 2, 3};
 
 void setup() {
   Serial.begin(115200);
   pinMode(LED_BUILTIN, OUTPUT);
-  motorTopLeft.attach(motorTopLeftPin);
-  motorBottomLeft.attach(motorBottomLeftPin);
-  motorTopRight.attach(motorTopRightPin);
-  motorBottomRight.attach(motorBottomRightPin);
+  motors[0].attach(motorPins[0]);
+  motors[1].attach(motorPins[1]);
+  motors[2].attach(motorPins[2]);
+  motors[3].attach(motorPins[3]);
 
-  motorTopLeft.write(1660);
-  motorBottomLeft.write(1660);
-  motorTopRight.write(1300);
-  motorBottomRight.write(1300);
+  motors[0].write(1660);
+  motors[1].write(1660);
+  motors[2].write(1300);
+  motors[3].write(1300);
 }
 
 void loop() {
