@@ -11,7 +11,7 @@ void setup() {
   for (int i = 0; i < 4; i = i + 1) {
     motors[i].attach(motorPins[i]);
   }
-  move(6, 0);
+  move(10, 0);
 }
 
 void loop() {}
