@@ -4,14 +4,14 @@
 #include "../utility/move.h"
 
 Servo motors[4];
-int motorPins[4] = {4, 5, 2, 3};
+int megaPins[4] = {4, 5, 2, 3};
 
 void setup() {
   Serial.begin(115200);
   for (int i = 0; i < 4; i = i + 1) {
-    motors[i].attach(motorPins[i]);
+    motors[i].attach(megaPins[i]);
   }
-  move(6.0f, 0.0f);
+  move(10.0f, 0.0f);
 }
 
 void loop() {}
